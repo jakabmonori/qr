@@ -2,9 +2,6 @@ import PySimpleGUI as gui
 from generator import Generator
 
 
-gen = Generator()
-gen.generate_qr(15,0,'asd', 'Z:/Meló/QR Systems/qr_gen/képek')
-
 gui.theme('DarkAmber')
 
 #Vars
@@ -44,6 +41,7 @@ while True:
 
             print(type(string_length), type(no_of_codes), type(url_base))
 
+            gen = Generator(no_of_codes)
             gen.generate_qr(string_length, no_of_codes, url_base, chosen_path)
 
             window["WARNING"].update("A kódok készen vannak!", text_color="darkgreen")
