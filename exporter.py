@@ -3,7 +3,7 @@ import csv
 class csv_generator:
 
     csv_filename = "teszt"
-    csv_headers = ["Azonosító", "Típus", "Cikkszám", "Név", "Közzétéve", "Kiemelt?", "Látható a katalógusban", "Rövid leírás", "Leírás", "Akciós ár kezdődátuma", "Akciós ár végdátuma", "Adó státusz", "Adózási osztály", "Raktáron?", "Készlet", "Alacsony készlet mennyiség", "Függő rendelés engedélyezése?", "Egyedileg értékesíthető?", "Tömeg (kg)", "Hosszúság (cm)", "Szélesség (cm)", "Magasság (cm)", "Engedélyezzük az értékelést?", "Vásárlási megjegyzés", "Akciós ár", "Normál ár", "Kategória", "Címkék", "Szállítási osztály", "Képek", "Letöltési korlát", "Letöltés lejárati napok", "Szülő", "Csoportosított termék", "Upsell", "Keresztértékesítés", "Külső URL", "Gomb Szövege", "Pozíció"]
+    csv_headers = ["Típus", "Név", "Közzétéve", "Látható", "Rövid leírás", "Leírás",  "Adó státusz", "Raktár", "Készlet", "Függő rendelés engedélyezése", "Egyedileg értékesíthető", "Értékelés", "Normál ár", "Kategória", "Címkék", "Képek"]
     csv_headers_s = ["Karakterlánc", "Hossz", "URL"]
 
     def initialize_csv(self):

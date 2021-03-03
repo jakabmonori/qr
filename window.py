@@ -17,9 +17,6 @@ data_for_export = [None] * 39
 
 
 #Spinners
-tipus_spinner1 = gui.Spin(values=('Üres', 'Simple', 'Variation', 'Virtual'), initial_value='Üres', size=(10, 1))
-tipus_spinner2 = gui.Spin(values=('Üres', 'Simple', 'Variation', 'Virtual'), initial_value='Üres', size=(10, 1))
-tipus_spinner3 = gui.Spin(values=('Üres', 'Simple', 'Variation', 'Virtual'), initial_value='Üres', size=(10, 1))
 
 #Közzétéve: 1,      Privát: 0,      Piszkozat: -1,
 kozzeteve_spinner = gui.Spin(values=('Közzétéve', 'Privát', 'Piszkozat'), initial_value='Közzétéve', size=(10, 1))
@@ -42,7 +39,7 @@ base_ui_column = [  [gui.Text('Karakterlánc hossza:', size=(20,1)), gui.InputTe
             [gui.Button('Ok', size=(20,1)), gui.Button('Mégsem')],
 ]
 
-tovabbi_beallitasok_column1 = [ [gui.Text('Típus', size=(20,1)), tipus_spinner1, tipus_spinner2, tipus_spinner3],
+tovabbi_beallitasok_column1 = [ [gui.Text('Típus', size=(20,1)), gui.InputText(default_text="simple, virtual", tooltip="3 opció van: \n1. simple \n2.variation \n3. virtual \nAlap QR kódhoz 'simple, virtual' kell. \nUgyan ebben a formátumban lehet többet, más variációt egybetenni.")],
             [gui.Text('Közzétéve', size=(20,1)), kozzeteve_spinner],
             [gui.Text('Látható katalógusban?', size=(20,1)), lathato_katalogusban_spinner],
             [gui.Text('Rövid leírás', size=(20,1)), gui.InputText()],
@@ -79,15 +76,23 @@ while True:
             no_of_codes = values[1]
             url_base = values[2]
             #chosen_path
+            """tipus = values[3]
+            kozzeteve = values[4]
+            lathato_katalogusban = values[5]
+            rovid_leiras = values[6]"""
+            
 
             print(type(string_length), type(no_of_codes), type(url_base))
 
             gen = Generator(no_of_codes)
-            gen.generate_qr(string_length, no_of_codes, url_base, chosen_path)
+            gen.generate_qr(string_length, no_of_codes, url_base, chosen_path, values)
 
             window["WARNING"].update("A kódok készen vannak!", text_color="green")
+            print(values)
         else:
             window["WARNING"].update("Helytelen értékek!", text_color="red")
+            
+    
 
     
 
