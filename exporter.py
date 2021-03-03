@@ -17,7 +17,7 @@ class csv_generator:
             writer.writerow(["1", "random", "4535345"])
 
     def test(self, export_arr):
-        with open(self.csv_filename + ".csv", 'w', newline='') as file:
+        with open(self.csv_filename + ".csv", 'w', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             writer.writerow(self.csv_headers_s)
             for x in range(len(export_arr)):
