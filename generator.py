@@ -63,14 +63,14 @@ class Generator:
 
     def generate_array(self, x, array, rnd_string):
         date = self.get_date()
-        self.exporter_arr[0][x] = [[array[3], rnd_string, array[4], array[5], array[6], array[7], "taxable", "1", "1", "0", "1", "0", array[10], array[8], array[9], "https://qrsystem.hu/wp-content/uploads/" + date + '/' + rnd_string + '.png' ]]
+        self.exporter_arr[x] = array[3], rnd_string, array[4], array[5], array[6], array[7], "taxable", "1", "1", "0", "1", "0", array[10], array[8], array[9], "https://qrsystem.hu/wp-content/uploads/" + date + '/' + rnd_string + '.png' 
         return self.exporter_arr
 
     def get_date(self):
         x = datetime.datetime.now()
-        year = x.strftime("%H")
-        month = x.strftime("$m")
-        result = year + '/' + month + '/'
+        year = x.strftime("%Y")
+        month = x.strftime("%m")
+        result = year + '/' + month
         return result
 
 

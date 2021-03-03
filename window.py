@@ -19,10 +19,10 @@ data_for_export = [None] * 39
 #Spinners
 
 #Közzétéve: 1,      Privát: 0,      Piszkozat: -1,
-kozzeteve_spinner = gui.Spin(values=('Közzétéve', 'Privát', 'Piszkozat'), initial_value='Közzétéve', size=(10, 1))
+kozzeteve_spinner = gui.Spin(values=('1', '0', '-1'), initial_value='1', size=(10, 1))
 
 #Rejtett - "hidden",        Látható - "visible"     Katalógus - "catalog"     Keresés - "search"
-lathato_katalogusban_spinner = gui.Spin(values=('Rejtett', 'Látható', 'Katalógus', 'Keresés'), initial_value='Rejtett', size=(10, 1))
+lathato_katalogusban_spinner = gui.Spin(values=('hidden', 'visible', 'catalog', 'search'), initial_value='hidden', size=(10, 1))
 
 
 ########################################################################################################################################

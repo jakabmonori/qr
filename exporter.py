@@ -17,10 +17,11 @@ class csv_generator:
             writer.writerow(["1", "random", "4535345"])
 
     def test(self, export_arr):
-        with open(self.csv_filename + ".csv", 'w', newline='', encoding="utf-8") as file:
+        with open(self.csv_filename + ".csv", 'w', newline='', encoding="utf-8-sig") as file:
             writer = csv.writer(file)
-            writer.writerow(self.csv_headers_s)
-            for x in range(len(export_arr)):
-                writer.writerow([export_arr[x][0], export_arr[x][1], export_arr[x][2]])
+            writer.writerow(self.csv_headers)
+            writer.writerows(export_arr)
+            #for x in range(len(export_arr)):
+            #writer.writerow([export_arr[x][0], export_arr[x][1], export_arr[x][2], export_arr[x][3], export_arr[x][4], export_arr[x][5], export_arr[x][6], export_arr[x][7], export_arr[x][8], export_arr[x][9], export_arr[x][10])"""
 
 csvgen = csv_generator()
