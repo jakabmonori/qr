@@ -34,6 +34,7 @@ lathato_katalogusban_spinner = gui.Spin(values=('hidden', 'visible', 'catalog', 
 base_ui_column = [  [gui.Text('Karakterlánc hossza:', size=(20,1)), gui.InputText()],
             [gui.Text('QR kódok száma:', size=(20,1)), gui.InputText()],
             [gui.Text('Alap URL:', size=(20,1)), gui.InputText()],
+            [gui.Text('Logó középre:', size=(20,1)), gui.Text('Válaszd ki a képet!', key="IMG_PATH", text_color="white", size=(20,1)), gui.Button('Kép kiválasztása', tooltip="A képet egyelőre max 100x100-as méretben lehet beimportálni.")],
             [gui.Text('Képek mentése:  ', size=(20,1)), gui.Text('Válaszd ki, hova szeretnéd menteni!', key="PATH", text_color="white"), gui.Button('Módosítás')],
             [gui.Text('Eddig minden rendben!', text_color="green", key="WARNING", size=(20,1))],
             [gui.Button('Ok', size=(20,1)), gui.Button('Mégsem')],
@@ -61,6 +62,9 @@ while True:
     if event == gui.WIN_CLOSED or event == 'Mégsem':
         break
 
+    if event == "Kép kiválasztása":
+        img_path = gui.popup_get_file("Válaszd ki a képet", "Kép kiválasztása", keep_on_top=True)
+        window['IMG_PATH'].update(img_path)
 
     if event == 'Módosítás':
         chosen_path = gui.popup_get_folder("Válassz mappát!", "Mentési hely változtatása", keep_on_top=True)
@@ -85,7 +89,7 @@ while True:
             print(type(string_length), type(no_of_codes), type(url_base))
 
             gen = Generator(no_of_codes)
-            gen.generate_qr(string_length, no_of_codes, url_base, chosen_path, values)
+            gen.generate_qr(string_length, no_of_codes, url_base, chosen_path, values, img_path)
 
             window["WARNING"].update("A kódok készen vannak!", text_color="green")
             print(values)
